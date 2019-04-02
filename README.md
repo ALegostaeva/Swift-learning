@@ -1,10 +1,9 @@
 # Swift-learning
 
 ## Done
-[*] Project 1 - Storm Viewer
-[+] Project 2 - Flags Guess
+[*] Project 1 - Storm Viewer & Project 3 - Social Media
+[*] Project 2 - Flags Guess
 ## In progress
-[] Project 3 - Social Media
 [] Project 4 - Easy Browser
 [] Project 5 - Word Scramble
 [] Project 6 - Auto Layout
