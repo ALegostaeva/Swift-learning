@@ -57,7 +57,7 @@ class ViewController: UIViewController {
             gamerScore += 1
             labelScore.text = "You score is: \(gamerScore)"
         } else {
-            title = "Uppps! Wrong"
+            title = "Oops! Wrong"
             gamerScore -= 1
             labelScore.text = "You score is: \(gamerScore)"
         }

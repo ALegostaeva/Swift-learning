@@ -29,6 +29,8 @@ class ViewController: UITableViewController {
             }
         }
         print(pictures)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +49,15 @@ class ViewController: UITableViewController {
             detailView.selectedImage = pictures[indexPath.row]
             navigationController?.pushViewController(detailView, animated: true)
         }
+    }
+    
+    @objc func shareTapped() {
+        
+        let textForShare: [Any] = ["This app is my favorite", URL(string: "https://www.apple.com")!]
+        
+        let viewCon = UIActivityViewController(activityItems: [textForShare], applicationActivities: nil)
+        viewCon.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(viewCon, animated: true)
     }
 
 }
