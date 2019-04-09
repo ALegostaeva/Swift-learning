@@ -12,6 +12,8 @@
 		1F448E8922580073006858D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F448E8722580073006858D8 /* Main.storyboard */; };
 		1F448E8B22580074006858D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F448E8A22580074006858D8 /* Assets.xcassets */; };
 		1F448E8E22580074006858D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F448E8C22580074006858D8 /* LaunchScreen.storyboard */; };
+		1F448E96225B3D74006858D8 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F448E95225B3D74006858D8 /* start.txt */; };
+		1F448E98225D2B24006858D8 /* startRu.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F448E97225D2B24006858D8 /* startRu.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		1F448E8A22580074006858D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F448E8D22580074006858D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F448E8F22580074006858D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F448E95225B3D74006858D8 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
+		1F448E97225D2B24006858D8 /* startRu.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = startRu.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		1F448E8222580073006858D8 /* Project5 */ = {
 			isa = PBXGroup;
 			children = (
+				1F448E97225D2B24006858D8 /* startRu.txt */,
+				1F448E95225B3D74006858D8 /* start.txt */,
 				1F448E8322580073006858D8 /* AppDelegate.swift */,
 				1F448E8522580073006858D8 /* ViewController.swift */,
 				1F448E8722580073006858D8 /* Main.storyboard */,
@@ -123,6 +129,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F448E8E22580074006858D8 /* LaunchScreen.storyboard in Resources */,
+				1F448E96225B3D74006858D8 /* start.txt in Resources */,
+				1F448E98225D2B24006858D8 /* startRu.txt in Resources */,
 				1F448E8B22580074006858D8 /* Assets.xcassets in Resources */,
 				1F448E8922580073006858D8 /* Main.storyboard in Resources */,
 			);
