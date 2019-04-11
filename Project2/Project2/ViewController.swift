@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(newGame))
+        
         button1.layer.borderWidth = 1
         button2.layer.borderWidth = 1
         button3.layer.borderWidth = 1
@@ -35,8 +37,13 @@ class ViewController: UIViewController {
         
         
         askCountry()
-        labelScore.text = "You score is: \(gamerScore)"
         
+    }
+    
+    @objc func newGame() {
+        gamerScore = 0
+        labelScore.text = "You score is: \(gamerScore)"
+        askCountry()
     }
     
     func askCountry (action: UIAlertAction! = nil) {
@@ -48,6 +55,7 @@ class ViewController: UIViewController {
         
         correctAnswer = Int.random(in: 0...2)
         title = countries[correctAnswer].uppercased()
+        labelScore.text = "You score is: \(gamerScore)"
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -55,14 +63,15 @@ class ViewController: UIViewController {
         if correctAnswer == sender.tag {
             title = "Yep! Correct"
             gamerScore += 1
-            labelScore.text = "You score is: \(gamerScore)"
+            showAnswer(titleAlert: "Yep! Correct", messageAlert: "Indeed, it is \(countries[correctAnswer].uppercased()). Your score is \(gamerScore)")
         } else {
-            title = "Oops! Wrong"
             gamerScore -= 1
-            labelScore.text = "You score is: \(gamerScore)"
+            showAnswer(titleAlert: "Oops! Wrong", messageAlert: "It is \(countries[correctAnswer].uppercased()).Your score is \(gamerScore)")
         }
-        
-        let ac = UIAlertController(title: title, message: "Your score is \(gamerScore)", preferredStyle: .alert)
+    }
+    
+    func showAnswer (titleAlert: String, messageAlert: String) {
+        let ac = UIAlertController(title: titleAlert, message: messageAlert, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askCountry))
         present(ac, animated: true)
     }
