@@ -56,12 +56,19 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qcD-Fn-g8B" firstAttribute="top" secondItem="oeu-ou-QLr" secondAttribute="bottom" constant="10" id="1Mo-Sm-GB6"/>
+                            <constraint firstItem="p5o-l8-hGf" firstAttribute="width" secondItem="qcD-Fn-g8B" secondAttribute="height" multiplier="2:1" id="846-Td-dkz"/>
+                            <constraint firstItem="qcD-Fn-g8B" firstAttribute="width" secondItem="oeu-ou-QLr" secondAttribute="width" id="896-IF-JXd"/>
                             <constraint firstItem="bCX-Uo-WxH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="DBJ-DX-Hvg"/>
+                            <constraint firstItem="p5o-l8-hGf" firstAttribute="height" secondItem="qcD-Fn-g8B" secondAttribute="height" id="FCi-OP-tHg"/>
+                            <constraint firstItem="p5o-l8-hGf" firstAttribute="width" secondItem="qcD-Fn-g8B" secondAttribute="width" id="Pse-OY-bis"/>
+                            <constraint firstItem="qcD-Fn-g8B" firstAttribute="width" secondItem="oeu-ou-QLr" secondAttribute="height" multiplier="2:1" id="Q9x-T3-x0Y"/>
                             <constraint firstItem="p5o-l8-hGf" firstAttribute="centerX" secondItem="qcD-Fn-g8B" secondAttribute="centerX" id="QqT-VK-pjs"/>
                             <constraint firstItem="qcD-Fn-g8B" firstAttribute="centerX" secondItem="oeu-ou-QLr" secondAttribute="centerX" id="cE1-JB-hwX"/>
                             <constraint firstItem="bCX-Uo-WxH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="etI-58-wVS"/>
                             <constraint firstItem="oeu-ou-QLr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gaq-cZ-bWK"/>
                             <constraint firstItem="p5o-l8-hGf" firstAttribute="top" secondItem="qcD-Fn-g8B" secondAttribute="bottom" constant="10" id="jwh-Wx-yVz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="p5o-l8-hGf" secondAttribute="bottom" constant="30" id="leS-2l-p2y"/>
+                            <constraint firstItem="qcD-Fn-g8B" firstAttribute="height" secondItem="oeu-ou-QLr" secondAttribute="height" id="mF3-zO-DiS"/>
                             <constraint firstItem="oeu-ou-QLr" firstAttribute="top" secondItem="bCX-Uo-WxH" secondAttribute="bottom" constant="38" id="ylB-az-V0N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
