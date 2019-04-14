@@ -12,6 +12,12 @@
 		1F448F1022638E1C006858D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F448F0E22638E1C006858D8 /* Main.storyboard */; };
 		1F448F1222638E1D006858D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F448F1122638E1D006858D8 /* Assets.xcassets */; };
 		1F448F1522638E1D006858D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F448F1322638E1D006858D8 /* LaunchScreen.storyboard */; };
+		1F448F1D22639686006858D8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F1C22639686006858D8 /* Character.swift */; };
+		1F448F1F22639794006858D8 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F1E22639794006858D8 /* Characters.swift */; };
+		1F448F212263B5C2006858D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F202263B5C2006858D8 /* DetailViewController.swift */; };
+		1F448F232263C230006858D8 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F222263C230006858D8 /* Planet.swift */; };
+		1F448F252263C54A006858D8 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F242263C54A006858D8 /* Film.swift */; };
+		1F448F272263C7EB006858D8 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F262263C7EB006858D8 /* Films.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		1F448F1122638E1D006858D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F448F1422638E1D006858D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F448F1622638E1D006858D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F448F1C22639686006858D8 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		1F448F1E22639794006858D8 /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		1F448F202263B5C2006858D8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1F448F222263C230006858D8 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		1F448F242263C54A006858D8 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		1F448F262263C7EB006858D8 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,12 @@
 			children = (
 				1F448F0A22638E1C006858D8 /* AppDelegate.swift */,
 				1F448F0C22638E1C006858D8 /* ViewController.swift */,
+				1F448F202263B5C2006858D8 /* DetailViewController.swift */,
+				1F448F222263C230006858D8 /* Planet.swift */,
+				1F448F242263C54A006858D8 /* Film.swift */,
+				1F448F262263C7EB006858D8 /* Films.swift */,
+				1F448F1C22639686006858D8 /* Character.swift */,
+				1F448F1E22639794006858D8 /* Characters.swift */,
 				1F448F0E22638E1C006858D8 /* Main.storyboard */,
 				1F448F1122638E1D006858D8 /* Assets.xcassets */,
 				1F448F1322638E1D006858D8 /* LaunchScreen.storyboard */,
@@ -136,7 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F448F0D22638E1C006858D8 /* ViewController.swift in Sources */,
+				1F448F272263C7EB006858D8 /* Films.swift in Sources */,
+				1F448F1F22639794006858D8 /* Characters.swift in Sources */,
+				1F448F212263B5C2006858D8 /* DetailViewController.swift in Sources */,
+				1F448F232263C230006858D8 /* Planet.swift in Sources */,
 				1F448F0B22638E1C006858D8 /* AppDelegate.swift in Sources */,
+				1F448F1D22639686006858D8 /* Character.swift in Sources */,
+				1F448F252263C54A006858D8 /* Film.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
