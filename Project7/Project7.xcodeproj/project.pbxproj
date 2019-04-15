@@ -17,7 +17,6 @@
 		1F448F212263B5C2006858D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F202263B5C2006858D8 /* DetailViewController.swift */; };
 		1F448F232263C230006858D8 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F222263C230006858D8 /* Planet.swift */; };
 		1F448F252263C54A006858D8 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F242263C54A006858D8 /* Film.swift */; };
-		1F448F272263C7EB006858D8 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F448F262263C7EB006858D8 /* Films.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		1F448F202263B5C2006858D8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1F448F222263C230006858D8 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		1F448F242263C54A006858D8 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
-		1F448F262263C7EB006858D8 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +69,6 @@
 				1F448F202263B5C2006858D8 /* DetailViewController.swift */,
 				1F448F222263C230006858D8 /* Planet.swift */,
 				1F448F242263C54A006858D8 /* Film.swift */,
-				1F448F262263C7EB006858D8 /* Films.swift */,
 				1F448F1C22639686006858D8 /* Character.swift */,
 				1F448F1E22639794006858D8 /* Characters.swift */,
 				1F448F0E22638E1C006858D8 /* Main.storyboard */,
@@ -154,7 +151,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F448F0D22638E1C006858D8 /* ViewController.swift in Sources */,
-				1F448F272263C7EB006858D8 /* Films.swift in Sources */,
 				1F448F1F22639794006858D8 /* Characters.swift in Sources */,
 				1F448F212263B5C2006858D8 /* DetailViewController.swift in Sources */,
 				1F448F232263C230006858D8 /* Planet.swift in Sources */,

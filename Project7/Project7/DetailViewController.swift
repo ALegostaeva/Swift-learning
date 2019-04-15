@@ -14,8 +14,9 @@ class DetailViewController: UIViewController {
     var webView: WKWebView!
     var detailCharacter: Character?
 
-    var planet = "No information"
-    var film = "No information"
+//    there are always a value.
+    var planet = ""
+    var film = ""
     
     override func loadView() {
         webView = WKWebView()
@@ -27,13 +28,13 @@ class DetailViewController: UIViewController {
         
         guard let detailCharacter = detailCharacter else { return }
         
-        let urlPlanet = detailCharacter.homeworld
-        let urlFilms = detailCharacter.films
         
-        for urlFilm in urlFilms {
-            takeValueOf(urlFilm)
+        planet = takeValueOf(detailCharacter.homeworld)
+        for url in detailCharacter.films {
+            film += "\(takeValueOf(url));"
         }
-        takeValueOf(urlPlanet)
+        
+        
         
         
         let html = """
@@ -53,9 +54,7 @@ class DetailViewController: UIViewController {
         <p> Gender is <b>\(detailCharacter.gender)</b></p>
         <p> Homeworld is <b>\(planet)</b></p>
         <p> Films: <b>\(film)</b></p>
-        <p> Species is <b>\(detailCharacter.species)</b></p>
-        <p> Vehicles: <b>\(detailCharacter.vehicles)</b></p>
-        <p> Starships: <b>\(detailCharacter.starships)</b></p>
+
         </body>
         </html>
         """
@@ -64,28 +63,33 @@ class DetailViewController: UIViewController {
 
     }
     
-    func takeValueOf(_ url: String){
+// convert string to url and call parse func to get a value
+    func takeValueOf(_ url: String) -> String{
         if let url = URL(string: url) {
             if let data = try? Data(contentsOf: url) {
-                debugPrint(data)
-                parse(json: data)
-            } else {debugPrint("not data")}
-        } else {debugPrint("not url")}
+//              call func parse
+                return parse(json: data)
+            } else {
+                return "No Information"
+            }
+        } else {
+            return "No information"
+        }
     }
+    
+//    takes json information and unwrappes as a struct
 
-    func parse(json: Data){
+    func parse(json: Data) -> String {
         let decoder = JSONDecoder()
         
-        debugPrint("here parse")
-        debugPrint(json)
-
-        
         if let json = try? decoder.decode(Planet.self, from: json) {
-            planet = String(json.name)
-            debugPrint("here decode")
+//          parse planet
+            return String(json.name)
         } else if let json = try? decoder.decode(Film.self, from: json) {
-            film.append("Episod \(json.episode_id): \"\(json.title)\" ")
-            debugPrint("here parse film")
+//          parse episode
+            return "Episode \(json.episode_id): \(json.title)"
+        } else {
+            return "No information"
         }
     }
 

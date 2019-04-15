@@ -15,7 +15,7 @@ class ViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Charcters of StarWars"
+        title = "Characters of StarWars"
         
         let urlString = "https://swapi.co/api/people/"
         
