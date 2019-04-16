@@ -11,10 +11,13 @@ import UIKit
 class ViewController: UITableViewController {
 
     var petitions = [Petition]()
+    var filteredPetitions = [Petition]()
+    var filtered = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        debugPrint("load view")
         let urlString: String
         if navigationController?.tabBarItem.tag == 0 {
             urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=50"
@@ -42,12 +45,21 @@ class ViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return petitions.count
+        if filtered {
+            return filteredPetitions.count
+        } else {
+            return petitions.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let petition = petitions[indexPath.row]
+        let petition: Petition
+        if filtered {
+            petition = filteredPetitions[indexPath.row]
+        } else {
+            petition = petitions[indexPath.row]
+        }
         cell.textLabel?.text = petition.title
         cell.detailTextLabel?.text = petition.body
         return cell
@@ -55,6 +67,11 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
+        if filtered {
+            vc.detailItem = filteredPetitions[indexPath.row]
+        } else {
+            vc.detailItem = petitions[indexPath.row]
+        }
         vc.detailItem = petitions[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -90,8 +107,11 @@ class ViewController: UITableViewController {
         present(ac, animated: true)
     }
     
-    func searching(_ filter: String) {
-        
+    func searching(_ userFilter: String) {
+        debugPrint("searching \(userFilter)")
+        filteredPetitions = petitions.filter {$0.body.contains(userFilter) || $0.title.contains(userFilter)}
+        filtered = true
+        tableView.reloadData()
     }
 }
 
