@@ -60,15 +60,18 @@ class ViewController: UIViewController {
         
         var previous: UILabel?
         
+        
         for label in [label1, label2, label3, label4, label5] {
             label.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-            label.heightAnchor.constraint(lessThanOrEqualToConstant: 180).isActive = true
+            label.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2, constant: -10).isActive = true
+            
             
             if let previous = previous {
-                label.topAnchor.constraint(equalTo: previous.bottomAnchor, constant: 0).isActive = true
+                label.topAnchor.constraint(equalTo: previous.bottomAnchor, constant: 10).isActive = true
             }
             previous = label
         }
+        
         
     }
 
