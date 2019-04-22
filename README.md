@@ -8,9 +8,9 @@
 * Project 6 - Auto Layout
 * Project 7 - Whitehouse Petitions
 - Project 8 - 7 Swifty Words
+- Project 9 - Grand Central Dispatch
 
 ## In progress
-- Project 9 - Grand Central Dispatch
 - Project 10 - Names to Faces
 - Project 11 - Pachinko
 - Project 12 - UserDefaults
