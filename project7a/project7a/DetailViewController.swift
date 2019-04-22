@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
         </head>
         <body>
         \(detailItem.body)
+        <p>Signatures: \(detailItem.signatureCount)</p>
         </body>
         </html>
         """
