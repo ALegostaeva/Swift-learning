@@ -109,8 +109,10 @@ class ViewController: UITableViewController {
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Go", style: .default) {[weak self, weak ac] action in
             guard let filter = ac?.textFields?[0].text else {return}
-            self?.searching(filter)
-            })
+            DispatchQueue.global(qos: .userInitiated).async {[weak self] in
+                self?.searching(filter)
+            }
+        })
         present(ac, animated: true)
     }
     
@@ -118,7 +120,7 @@ class ViewController: UITableViewController {
         debugPrint("searching \(userFilter)")
         filteredPetitions = petitions.filter {$0.body.contains(userFilter) || $0.title.contains(userFilter)}
         filtered = true
-        tableView.reloadData()
+        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
     }
 }
 
