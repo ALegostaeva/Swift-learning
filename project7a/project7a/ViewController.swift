@@ -21,9 +21,14 @@ class ViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearch))
         
+        if petitions.count == 0 {
+            tableView.cellForRow(at: [0,0])?.textLabel?.text = "Loading..."
+        }
+        
         performSelector(inBackground: #selector(fetchJSON), with: nil)
     }
 
+//    draw the table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filtered {
             return filteredPetitions.count
@@ -34,6 +39,7 @@ class ViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        debugPrint(indexPath)
         let petition: Petition
         if filtered {
             petition = filteredPetitions[indexPath.row]
@@ -56,6 +62,7 @@ class ViewController: UITableViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+//    work with JSON
     @objc func fetchJSON() {
 
         let urlString: String
@@ -91,6 +98,7 @@ class ViewController: UITableViewController {
         }
     }
     
+//    alerts for user
     @objc func showError() {
 
         let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
@@ -104,6 +112,7 @@ class ViewController: UITableViewController {
         present(ac, animated: true)
     }
     
+//    searching funcs
     @objc func showSearch() {
         let ac = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
         ac.addTextField()
@@ -118,7 +127,8 @@ class ViewController: UITableViewController {
     
     func searching(_ userFilter: String) {
         debugPrint("searching \(userFilter)")
-        filteredPetitions = petitions.filter {$0.body.contains(userFilter) || $0.title.contains(userFilter)}
+        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        filteredPetitions = petitions.filter {$0.body.lowercased().contains(userFilter.lowercased()) || $0.title.lowercased().contains(userFilter.lowercased())}
         filtered = true
         tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
     }
