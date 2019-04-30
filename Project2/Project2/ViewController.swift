@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
-    
     @IBOutlet weak var labelScore: UILabel!
     
     var gamerScore: Int = 0 {
@@ -24,7 +23,7 @@ class ViewController: UIViewController {
     
     var bestScore = 0
     
-    var lifes = 3 {
+    var lifes: Int = 3 {
         didSet{
             labelScore.text = "Score: \(gamerScore). Lifes:\(lifes)"
         }
@@ -53,15 +52,14 @@ class ViewController: UIViewController {
         
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
-        labelScore.text = "Score: \(gamerScore). Lifes:\(lifes)"
-        askCountry()
+        newGame()
         
     }
     
     @objc func newGame(action: UIAlertAction! = nil) {
         gamerScore = 0
         lifes = 3
-        labelScore.text = "You score is: \(gamerScore)"
+        labelScore.text = "Score: \(gamerScore). Lifes:\(lifes)"
         askCountry()
     }
     
