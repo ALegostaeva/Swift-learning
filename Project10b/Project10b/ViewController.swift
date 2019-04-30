@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UICollectionViewController {
     
     var pictures = [String]()
+    var views = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,13 @@ class ViewController: UICollectionViewController {
                 pictures.append(item)
             }
         }
+        
+        loadDefaults()
+        
+        if views.isEmpty {
+            views = Array (repeating: 0, count: pictures.count)
+        }
+        
         collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
     }
     
@@ -46,6 +54,7 @@ class ViewController: UICollectionViewController {
         
         cell.name.text = pictures[indexPath.item]
         cell.image.image = UIImage(named: pictures[indexPath.row])
+        cell.shown.text = "\u{1F441} " + String(views[indexPath.item])
         
         cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.layer.borderWidth = 2
@@ -60,7 +69,11 @@ class ViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if let detailView = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            detailView.selectedImage = pictures[indexPath.row]
+            detailView.selectedImage = pictures[indexPath.item]
+            views[indexPath.item] += 1
+            UserDefaults.standard.set(views, forKey: "views")
+            collectionView.reloadItems(at: [indexPath])
+            
             navigationController?.pushViewController(detailView, animated: true)
         }
     }
@@ -74,6 +87,12 @@ class ViewController: UICollectionViewController {
         present(viewCon, animated: true)
     }
     
+    func loadDefaults() {
+        if let views = UserDefaults.standard.object(forKey: "views") as? [Int] {
+            self.views = views
+        }
+    }
+
 }
 
 

@@ -12,4 +12,5 @@ class PictureCell:  UICollectionViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var shown: UILabel!
 }

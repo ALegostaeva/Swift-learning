@@ -14,6 +14,11 @@ class ViewController: UITableViewController {
     
     var words = [String]()
     var usedWords = [String]()
+    var userScore = 0 {
+        didSet{
+            score.text = "Счёт: \(userScore)"
+        }
+    }
 
         
     override func viewDidLoad() {
@@ -31,14 +36,26 @@ class ViewController: UITableViewController {
         if words.isEmpty {
             words += ["cleaner"]
         }
+        
+        if let titleForLoad = UserDefaults.standard.object(forKey: "title") as? String {
+            usedWords = UserDefaults.standard.object(forKey: "usedWords") as? [String] ?? [""]
+            title = titleForLoad
+            userScore = UserDefaults.standard.object(forKey: "score") as? Int ?? 0
+            tableView.reloadData()
+        } else {
+            startGame()
+        }
        
-        startGame()
     }
 
 
     @objc func startGame() {
-        title = words.randomElement()
-        score.text = "Счёт: 0"
+        UserDefaults.standard.removeObject(forKey: "title")
+        UserDefaults.standard.removeObject(forKey: "score")
+        UserDefaults.standard.removeObject(forKey: "usedWords")
+        title = words.randomElement()?.uppercased()
+        UserDefaults.standard.set(title, forKey: "title")
+        userScore = 0
         usedWords.removeAll()
         tableView.reloadData()
     }
@@ -73,11 +90,15 @@ class ViewController: UITableViewController {
         if checkIsPossible(word: lowerCasedAnswer) {
             if checkIsOriginal(word: lowerCasedAnswer) {
                 if checkIsReal(word: lowerCasedAnswer) {
+                    
                     usedWords.insert(lowerCasedAnswer, at: 0)
-                    score.text = ("(Счёт: \(usedWords.count))")
+                    
+                    userScore += lowerCasedAnswer.count
+                    
+                    UserDefaults.standard.set(usedWords, forKey: "usedWords")
+                    UserDefaults.standard.set(userScore, forKey: "score")
 
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
+                    tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                 }
             }
         }
