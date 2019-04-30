@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F3B56812252959600D62F3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B56802252959600D62F3B /* AppDelegate.swift */; };
 		1F3B56832252959600D62F3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B56822252959600D62F3B /* ViewController.swift */; };
-		1F3B56862252959600D62F3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3B56842252959600D62F3B /* Main.storyboard */; };
+		1F3B56862252959600D62F3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3B56842252959600D62F3B /* Main.storyboard */; settings = {ASSET_TAGS = (2, ); }; };
 		1F3B56882252959700D62F3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3B56872252959700D62F3B /* Assets.xcassets */; };
 		1F3B568B2252959700D62F3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3B56892252959700D62F3B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -90,6 +90,10 @@
 		1F3B56752252959600D62F3B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+					2,
+				);
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = self;

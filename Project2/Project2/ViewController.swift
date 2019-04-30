@@ -16,14 +16,32 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var labelScore: UILabel!
     
-    var gamerScore: Int = 0
+    var gamerScore: Int = 0 {
+        didSet{
+            labelScore.text = "Score: \(gamerScore). Lifes:\(lifes)"
+        }
+    }
+    
+    var bestScore = 0
+    
+    var lifes = 3 {
+        didSet{
+            labelScore.text = "Score: \(gamerScore). Lifes:\(lifes)"
+        }
+    }
+    
     var correctAnswer: Int = 0
     var countries = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(newGame))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New game", style: .plain, target: self, action: #selector(newGame))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Info", style: .plain, target: self, action: #selector(showInfo))
+        
+        button1.tag = 0
+        button2.tag = 1
+        button3.tag = 2
         
         button1.layer.borderWidth = 1
         button2.layer.borderWidth = 1
@@ -35,13 +53,14 @@ class ViewController: UIViewController {
         
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
-        
+        labelScore.text = "Score: \(gamerScore). Lifes:\(lifes)"
         askCountry()
         
     }
     
-    @objc func newGame() {
+    @objc func newGame(action: UIAlertAction! = nil) {
         gamerScore = 0
+        lifes = 3
         labelScore.text = "You score is: \(gamerScore)"
         askCountry()
     }
@@ -55,7 +74,6 @@ class ViewController: UIViewController {
         
         correctAnswer = Int.random(in: 0...2)
         title = countries[correctAnswer].uppercased()
-        labelScore.text = "You score is: \(gamerScore)"
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -63,16 +81,44 @@ class ViewController: UIViewController {
         if correctAnswer == sender.tag {
             title = "Yep! Correct"
             gamerScore += 1
-            showAnswer(titleAlert: "Yep! Correct", messageAlert: "Indeed, it is \(countries[correctAnswer].uppercased()). Your score is \(gamerScore)")
+            askCountry()
         } else {
             gamerScore -= 1
-            showAnswer(titleAlert: "Oops! Wrong", messageAlert: "It is \(countries[correctAnswer].uppercased()).Your score is \(gamerScore)")
+            lifes -= 1
+            if lifes < 0 {
+                if bestScore < gamerScore {
+                    bestScore = gamerScore
+                }
+                
+                let endGame = UIAlertController(title: "Game over", message: "Your score is \(gamerScore)", preferredStyle: .alert)
+                endGame.addAction(UIAlertAction(title: "Start new game", style: .default, handler: newGame))
+                present(endGame, animated: true)
+                
+            } else {
+                showAnswer(titleAlert: "Oops! Wrong", messageAlert: "It is \(countries[sender.tag].uppercased()).Your score is \(gamerScore)")
+            }
         }
     }
     
     func showAnswer (titleAlert: String, messageAlert: String) {
         let ac = UIAlertController(title: titleAlert, message: messageAlert, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askCountry))
+        present(ac, animated: true)
+    }
+    
+    @objc func showInfo() {
+        let message =
+        """
+            Game GUESS FLAGS
+        
+        You have only 3 lifes. With every wrong answer you are losing 1 life.
+        
+        
+        The best score is: \(bestScore)
+        """
+        
+        let ac = UIAlertController(title: "Information", message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
     
