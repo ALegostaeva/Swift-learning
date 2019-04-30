@@ -11,10 +11,9 @@
 - [X] Project 9 - Grand Central Dispatch
 - [X] Project 10 - Names to Faces
 - [X] Project 11 - Pachinko
+- [X] Project 12 - UserDefaults
 
 ## In progress
-- [ ] Project 11 - Pachinko
-- [ ] Project 12 - UserDefaults
 - [ ] Project 13 - Instafilter
 - [ ] Project 14 - Whack-a-Penguin
 - [ ] Project 15 - Animation
