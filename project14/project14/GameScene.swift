@@ -1,0 +1,166 @@
+//
+//  GameScene.swift
+//  project14
+//
+//  Created by Александра Легостаева on 01/05/2019.
+//  Copyright © 2019 self. All rights reserved.
+//
+
+import SpriteKit
+import GameplayKit
+
+class GameScene: SKScene {
+    
+    var gameScore: SKLabelNode!
+    var score = 0 {
+        didSet {
+            gameScore.text = "Score: \(score)"
+        }
+    }
+    var slots = [WhackSlot]()
+    var popupTime = 0.85
+    var start: SKLabelNode!
+    var numRounds = 0
+    
+    override func didMove(to view: SKView) {
+        let background = SKSpriteNode(imageNamed: "whackBackground")
+        background.position = CGPoint(x: 512, y: 384)
+        background.blendMode = .replace
+        background.zPosition = -1
+        addChild(background)
+        
+        start = SKLabelNode(fontNamed: "Chalkduster")
+        start.text = "Start game"
+        start.position = CGPoint(x: 512, y: 384)
+        start.fontSize = 48
+        start.name = "start"
+        start.zPosition = 1
+        addChild(start)
+        
+    }
+    
+    func startGame() {
+        start.removeFromParent()
+        
+        gameScore = SKLabelNode(fontNamed: "Chalkduster")
+        gameScore.text = "Score: 0"
+        gameScore.position = CGPoint(x: 8, y: 8)
+        gameScore.horizontalAlignmentMode = .left
+        gameScore.fontSize = 48
+        addChild(gameScore)
+        
+        for i in 0 ..< 5 { createSlot(at: CGPoint(x: 100 + (i * 170), y: 410)) }
+        for i in 0 ..< 4 { createSlot(at: CGPoint(x: 180 + (i * 170), y: 320)) }
+        for i in 0 ..< 5 { createSlot(at: CGPoint(x: 100 + (i * 170), y: 230)) }
+        for i in 0 ..< 4 { createSlot(at: CGPoint(x: 180 + (i * 170), y: 140)) }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            self?.createEnemy()
+        }
+        
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
+        let tappedNodes = nodes(at: location)
+      
+        debugPrint(tappedNodes, location)
+        
+        for node in tappedNodes {
+            
+            if node.name == "start" {
+                startGame()
+                return
+            }
+            
+            guard let whackSlot = node.parent?.parent as? WhackSlot else { continue }
+            if !whackSlot.isVisible { continue }
+            if whackSlot.isHit { continue }
+            
+            if node.name == "charFriend" {
+                
+                whackSlot.hit()
+                score -= 5
+                
+                if let magic = SKEmitterNode(fileNamed: "MagicEffect") {
+                    magic.position = location
+                    addChild(magic)
+                }
+                
+                run(SKAction.playSoundFileNamed("whackBad.caf", waitForCompletion:false))
+            } else if node.name == "charEnemy" {
+                
+                whackSlot.charNode.xScale = 0.85
+                whackSlot.charNode.yScale = 0.85
+                
+                whackSlot.hit()
+                score += 1
+                
+                if let smoke = SKEmitterNode(fileNamed: "SmokeEffect") {
+                    smoke.position = location
+                    addChild(smoke)
+                }
+                
+                run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion:false))
+            }
+        }
+    }
+    
+    func createSlot(at position: CGPoint) {
+        let slot = WhackSlot()
+        slot.configure(at: position)
+        addChild(slot)
+        slots.append(slot)
+    }
+    
+    func createEnemy() {
+        
+        numRounds += 1
+        
+        if numRounds >= 30 {
+            gameOver()
+            return
+        }
+        
+        popupTime *= 0.991
+        
+        slots.shuffle()
+        slots[0].show(hideTime: popupTime)
+        
+        if Int.random(in: 0...12) > 4 { slots[1].show(hideTime: popupTime) }
+        if Int.random(in: 0...12) > 8 {  slots[2].show(hideTime: popupTime) }
+        if Int.random(in: 0...12) > 10 { slots[3].show(hideTime: popupTime) }
+        if Int.random(in: 0...12) > 11 { slots[4].show(hideTime: popupTime)  }
+        
+        let minDelay = popupTime / 2.0
+        let maxDelay = popupTime * 2
+        let delay = Double.random(in: minDelay...maxDelay)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+            self?.createEnemy()
+        }
+    }
+    
+    func gameOver() {
+        
+        for slot in slots {
+            slot.hide()
+        }
+        
+        gameScore.removeFromParent()
+        
+        let gameOver = SKSpriteNode(imageNamed: "gameOver")
+        gameOver.position = CGPoint(x: 512, y: 384)
+        gameOver.zPosition = 1
+        addChild(gameOver)
+        
+        let finalScore = SKLabelNode(fontNamed: "Chalkduster")
+        finalScore.position = CGPoint(x: 512, y: 150)
+        finalScore.fontSize = 48
+        finalScore.zPosition = 1
+        finalScore.text = "Your score is \(score)"
+        addChild(finalScore)
+    }
+}
