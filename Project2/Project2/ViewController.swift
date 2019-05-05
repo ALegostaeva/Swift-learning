@@ -76,26 +76,30 @@ class ViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         
-        if correctAnswer == sender.tag {
-            title = "Yep! Correct"
-            gamerScore += 1
-            askCountry()
-        } else {
-            gamerScore -= 1
-            lifes -= 1
-            if lifes < 0 {
-                if bestScore < gamerScore {
-                    bestScore = gamerScore
-                }
-                
-                let endGame = UIAlertController(title: "Game over", message: "Your score is \(gamerScore)", preferredStyle: .alert)
-                endGame.addAction(UIAlertAction(title: "Start new game", style: .default, handler: newGame))
-                present(endGame, animated: true)
-                
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 3, options: .curveEaseOut, animations: {sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)}) { finished in
+        
+            if self.correctAnswer == sender.tag {
+                self.title = "Yep! Correct"
+                self.gamerScore += 1
+                self.askCountry()
             } else {
-                showAnswer(titleAlert: "Oops! Wrong", messageAlert: "It is \(countries[sender.tag].uppercased()).Your score is \(gamerScore)")
+                self.gamerScore -= 1
+                self.lifes -= 1
+                if self.lifes < 0 {
+                    if self.bestScore < self.gamerScore {
+                        self.bestScore = self.gamerScore
+                    }
+                    
+                    let endGame = UIAlertController(title: "Game over", message: "Your score is \(self.gamerScore)", preferredStyle: .alert)
+                    endGame.addAction(UIAlertAction(title: "Start new game", style: .default, handler: self.newGame))
+                    self.present(endGame, animated: true)
+                    
+                } else {
+                    self.showAnswer(titleAlert: "Oops! Wrong", messageAlert: "It is \(self.countries[sender.tag].uppercased()).Your score is \(self.gamerScore)")
+                }
             }
         }
+        sender.transform = .identity
     }
     
     func showAnswer (titleAlert: String, messageAlert: String) {

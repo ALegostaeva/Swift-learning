@@ -12,8 +12,6 @@
 		1F062BA1227B5BFE0011085A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F062B9F227B5BFE0011085A /* Main.storyboard */; };
 		1F062BA3227B5BFF0011085A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F062BA2227B5BFF0011085A /* Assets.xcassets */; };
 		1F062BA6227B5BFF0011085A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F062BA4227B5BFF0011085A /* LaunchScreen.storyboard */; };
-		1F062BB0227B5C380011085A /* penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F062BAE227B5C380011085A /* penguin.png */; };
-		1F062BB1227B5C380011085A /* penguin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F062BAF227B5C380011085A /* penguin@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +22,6 @@
 		1F062BA2227B5BFF0011085A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F062BA5227B5BFF0011085A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F062BA7227B5BFF0011085A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F062BAE227B5C380011085A /* penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = penguin.png; sourceTree = "<group>"; };
-		1F062BAF227B5C380011085A /* penguin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "penguin@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +54,6 @@
 		1F062B9A227B5BFE0011085A /* project15 */ = {
 			isa = PBXGroup;
 			children = (
-				1F062BAD227B5C380011085A /* Content */,
 				1F062B9B227B5BFE0011085A /* AppDelegate.swift */,
 				1F062B9D227B5BFE0011085A /* ViewController.swift */,
 				1F062B9F227B5BFE0011085A /* Main.storyboard */,
@@ -67,15 +62,6 @@
 				1F062BA7227B5BFF0011085A /* Info.plist */,
 			);
 			path = project15;
-			sourceTree = "<group>";
-		};
-		1F062BAD227B5C380011085A /* Content */ = {
-			isa = PBXGroup;
-			children = (
-				1F062BAE227B5C380011085A /* penguin.png */,
-				1F062BAF227B5C380011085A /* penguin@2x.png */,
-			);
-			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,11 +122,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F062BB0227B5C380011085A /* penguin.png in Resources */,
 				1F062BA6227B5BFF0011085A /* LaunchScreen.storyboard in Resources */,
 				1F062BA3227B5BFF0011085A /* Assets.xcassets in Resources */,
 				1F062BA1227B5BFE0011085A /* Main.storyboard in Resources */,
-				1F062BB1227B5C380011085A /* penguin@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
