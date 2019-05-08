@@ -18,19 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGc-dl-xAQ">
-                                <rect key="frame" x="150" y="825" width="114" height="37"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <state key="normal" title="TAP"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9c-kn-wSU">
+                                <rect key="frame" x="110.5" y="84" width="193" height="30"/>
+                                <state key="normal" title="tests desing with UIControls"/>
                                 <connections>
-                                    <action selector="tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ecS-J7-NNl"/>
+                                    <segue destination="c4E-4L-J7y" kind="show" id="cVa-Fd-fC8"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="UGc-dl-xAQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="efY-5C-4Mg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UGc-dl-xAQ" secondAttribute="bottom" id="fau-Zh-c9K"/>
+                            <constraint firstItem="Y9c-kn-wSU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mhr-Mn-3zt"/>
+                            <constraint firstItem="Y9c-kn-wSU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="rnb-Eg-Lcz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +37,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="118.52678571428571"/>
+        </scene>
+        <!--Controls View Controller-->
+        <scene sceneID="aFv-9L-c7Q">
+            <objects>
+                <viewController id="c4E-4L-J7y" customClass="ControlsViewController" customModule="project15" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G9W-M0-FUl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9O5-OV-hcz">
+                                <rect key="frame" x="138" y="84" width="138" height="30"/>
+                                <state key="normal" title="View with UIButtons"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="t58-kz-In9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9O5-OV-hcz" firstAttribute="centerX" secondItem="7cN-y3-ygB" secondAttribute="centerX" id="Ew2-8V-e0B"/>
+                            <constraint firstItem="9O5-OV-hcz" firstAttribute="top" secondItem="7cN-y3-ygB" secondAttribute="top" constant="40" id="MGH-l4-tjd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7cN-y3-ygB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8D6-dW-IyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="926" y="119"/>
         </scene>
     </scenes>
 </document>
