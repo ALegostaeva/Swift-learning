@@ -20,40 +20,27 @@ class ViewController: UIViewController {
         
         switch sender.tag {
         case 0:
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations:{sender.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            }) { finished in
-                sender.transform = .identity
-            }
+            animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeOut, animations: {
+                sender.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            })
+            debugPrint(sender.tag)
         case 1:
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations:{
+            animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeOut, animations: {
                 sender.transform = CGAffineTransform(translationX: 0, y: -10)
-            }) { finished in
-                sender.transform = .identity
-            }
+            })
         case 2:
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations:{sender.transform = CGAffineTransform(rotationAngle: CGFloat.pi/10)}) { finished in
-                sender.transform = .identity
-            }
             animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeOut, animations: {sender.transform = CGAffineTransform(rotationAngle: CGFloat.pi)})
         case 3:
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations:{sender.transform = CGAffineTransform(rotationAngle: CGFloat.pi/10)}) { finished in
-                sender.transform = .identity
-            }
             animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeOut, animations:{
                 sender.alpha = 0.9
                 sender.backgroundColor = UIColor.darkGray})
         case 4:
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations:{sender.transform = CGAffineTransform(rotationAngle: CGFloat.pi/10)}) { finished in
-                sender.transform = .identity
-            }
+            animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut, animations:{sender.transform = CGAffineTransform(rotationAngle: CGFloat.pi/10)})
         case 5:
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations:{sender.backgroundColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)}) { finished in
-                sender.transform = .identity
-            }
+            animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut, animations: {sender.backgroundColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)})
         case 6:
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations:{sender.backgroundColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)}) { finished in
-                sender.transform = .identity
-            }
+            animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut, animations: {sender.backgroundColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)})
+//            animator = UIViewPropertyAnimator(duration: 0.5, timingParameters: UISpringTimingParameters(mass: 1, stiffness: 1, damping: 1, initialVelocity: CGVector(dx: 0, dy: 4)))
             
         case 7:
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations:{sender.transform = CGAffineTransform(scaleX: 3, y: 3)}) { finished in

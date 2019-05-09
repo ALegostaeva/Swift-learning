@@ -43,6 +43,21 @@
             </objects>
             <point key="canvasLocation" x="882.60869565217399" y="763.39285714285711"/>
         </scene>
+        <!--Wiki View Controller-->
+        <scene sceneID="FRa-dd-wrF">
+            <objects>
+                <viewController storyboardIdentifier="Wiki" id="jSa-K1-qwA" customClass="WikiViewController" customModule="Project16" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cRe-1f-nYf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jch-gf-lf1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lSf-eO-h95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1559" y="763"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dOh-1n-0sq">
             <objects>
