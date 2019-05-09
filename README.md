@@ -15,13 +15,12 @@
 - [X] Project 12: UserDefaults (UserDefaults, NSCoding, Codable, NSKeyedArchiver)
 - [X] Project 14: Whack-a-Penguin (SKCropNode, SKTexture, asyncAfter())
 - [X] Project 15: Animation (Core Animation, CGAffineTransform)
+- [X] Project 16: Capital Cities (MKMapView, MKAnnotation, MKPinAnnotationView, CLLocationCoordinate2D)
 
 ## In progress
 - [ ] Project 13: Instafilter (Core Image, UISlider, writing to the photo library)
-- [ ] Project 16: Capital Cities (MKMapView, MKAnnotation, MKPinAnnotationView, CLLocationCoordinate2D)
 - [ ] Project 17: Space Race (Per-pixel collision detection, advancing particle systems, linear and angular damping)
-- [ ] Project 18: Debugging
-print(), assert(), breakpoints, and view debugging
+- [ ] Project 18: Debugging (print(), assert(), breakpoints, and view debugging)
 - [ ] Project 19: JavaScript Injection (Safari extensions, UITextView, NotificationCenter)
 - [ ] Project 20: Fireworks Night (Timer, follow(path:), sprite color blending, shake gestures)
 - [ ] Project 21: Local Notifications (UNUserNotificationCenter, UNNotificationRequest, UNMutableNotificationContent, UNCalendarNotificationTrigger, and UNTimeIntervalNotificationTrigger)

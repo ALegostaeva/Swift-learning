@@ -13,6 +13,7 @@
 		1F289ECD2282EB1B00AE6CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F289ECC2282EB1B00AE6CE6 /* Assets.xcassets */; };
 		1F289ED02282EB1B00AE6CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F289ECE2282EB1B00AE6CE6 /* LaunchScreen.storyboard */; };
 		1F289ED82282F72900AE6CE6 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F289ED72282F72900AE6CE6 /* Capital.swift */; };
+		1F289EDA2284299E00AE6CE6 /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F289ED92284299E00AE6CE6 /* WikiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1F289ECF2282EB1B00AE6CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F289ED12282EB1B00AE6CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F289ED72282F72900AE6CE6 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		1F289ED92284299E00AE6CE6 /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				1F289EC52282EB1A00AE6CE6 /* AppDelegate.swift */,
 				1F289EC72282EB1A00AE6CE6 /* ViewController.swift */,
+				1F289ED92284299E00AE6CE6 /* WikiViewController.swift */,
 				1F289ED72282F72900AE6CE6 /* Capital.swift */,
 				1F289EC92282EB1A00AE6CE6 /* Main.storyboard */,
 				1F289ECC2282EB1B00AE6CE6 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 			files = (
 				1F289EC82282EB1A00AE6CE6 /* ViewController.swift in Sources */,
 				1F289EC62282EB1A00AE6CE6 /* AppDelegate.swift in Sources */,
+				1F289EDA2284299E00AE6CE6 /* WikiViewController.swift in Sources */,
 				1F289ED82282F72900AE6CE6 /* Capital.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
