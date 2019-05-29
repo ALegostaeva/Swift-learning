@@ -57,5 +57,8 @@ class Project39Tests: XCTestCase {
         
         playData.applyUserFilter("objective-c")
         XCTAssertEqual(playData.filteredWords.count, 0)
+        
+        playData.applyUserFilter("the")
+        XCTAssertEqual(playData.filteredWords.count, 186)
     }
 }
